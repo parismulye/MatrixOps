@@ -26,8 +26,8 @@ ClassMatrix::ClassMatrix(int size){
 }
 
 //basic output
-int ClassMatrix::GetRows(){return m;}
-int ClassMatrix::GetColumns(){return n;}
+int ClassMatrix::Rows(){return m;}
+int ClassMatrix::Columns(){return n;}
 int ClassMatrix::Elems(){return elems;}
 double* ClassMatrix::Begin(){return p;}
 
@@ -54,10 +54,34 @@ void ClassMatrix::PrintMatrix(){
 }
 
 void PrintMatrix(ClassMatrix& A){
-  for(int i=0; i < A.GetRows(); i++){
-    for(int j=0; j< A.GetColumns(); j++){
+  for(int i=0; i < A.Rows(); i++){
+    for(int j=0; j< A.Columns(); j++){
       std::cout << A(i,j) << " ";
     }
     std::cout << std::endl;
   }
+}
+
+//creation of different types matrices
+void ClassMatrix::MakeIdentity(){
+  if(m != n){
+    std::cout << "Not a Sqaure Matrix "; throw;
+  }
+  for(int i=0; i< elems; i++) *(p+i) = 0.0;
+  for(int i=0; i< m; i++){
+    *(p+i*m+i) = 1.0;
+  }
+}
+
+void ClassMatrix::MakeNull(){
+  for(int i=0; i< elems; i++) *(p+i) = 0.0;
+}
+
+
+//Matrix Checks
+int IsNull(ClassMatrix& A){
+  for(int i=0; i<A.Elems(); i++){
+    if(*(A.Begin()+i) != 0.0) return 0;
+  }
+  return 1;
 }

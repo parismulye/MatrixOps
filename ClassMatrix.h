@@ -1,39 +1,30 @@
 class ClassMatrix{
 public:
-  //***constructor
 
   //rectangular matrix, initialize to 0.0, column storage
   ClassMatrix(int rows, int cols);
   //sqaure matrix, initialize to 0.0, coulmn storage
   ClassMatrix(int size);
 
-  //***basic output
-
+  //no of rows of matrix
   int Rows();
+  //no of columns of matrix
   int Columns();
-  //return no of elems in matrix
+  //no of elems in matrix
   int Elems();
-  //return pointer to the first elem of the matrix (0,0)
+  //pointer to the first elem of the matrix (0,0)
   double* Begin();
-
-  //***operators
-  double& operator()(int i, int j);
-
-  //***printing
 
   //print 1D array resembles the storage in memory
   void PrintMatrix1D();
   //prints 2D array (for visual purpose)
   void PrintMatrix();
 
-  //***Creation of different types of matrices
-  void MakeIdentity();
-  void MakeNull();
+  //index operator A(i,j)
+  double& operator()(int i, int j);
+  //Assignment of two Matrices A = B
+  ClassMatrix operator=(ClassMatrix& A);
 
-
-
-
-  //***variables
 private:
   int m; //rows
   int n; //cols
@@ -42,10 +33,11 @@ private:
 };
 
 
-  //***printing
+  //print 2D array (for visual purpose)
   void PrintMatrix(ClassMatrix& A);
 
-  //***matrix Checks
 
-  //return 1 if true, 0 if false
-  int IsNull(ClassMatrix& A);
+  //Adding two matrices A+B
+  ClassMatrix operator+(ClassMatrix& A, ClassMatrix& B);
+  //Checking if two matrices are equal A==B
+  int operator==(ClassMatrix& A, ClassMatrix& B);

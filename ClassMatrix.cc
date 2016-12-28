@@ -1,10 +1,7 @@
 #include "ClassMatrix.h"
 #include<iostream>
 
-//constructor
-
-//rectangular
-ClassMatrix::ClassMatrix(int rows, int cols){
+  ClassMatrix::ClassMatrix(int rows, int cols){
   m = rows;
   n = cols;
   elems = m*n;
@@ -14,7 +11,6 @@ ClassMatrix::ClassMatrix(int rows, int cols){
   }
 }
 
-//sqaure
 ClassMatrix::ClassMatrix(int size){
   m = size;
   n = size;
@@ -25,18 +21,13 @@ ClassMatrix::ClassMatrix(int size){
   }
 }
 
-//basic output
+
 int ClassMatrix::Rows(){return m;}
 int ClassMatrix::Columns(){return n;}
 int ClassMatrix::Elems(){return elems;}
 double* ClassMatrix::Begin(){return p;}
 
-//operators
-double& ClassMatrix::operator()(int i, int j){
-  return *(p+m*j+i);
-}
 
-//printing
 void ClassMatrix::PrintMatrix1D(){
   for(int i=0; i<elems; i++){
     std::cout << *(p+i) << " ";
@@ -51,6 +42,7 @@ void ClassMatrix::PrintMatrix(){
     }
     std::cout << std::endl;
   }
+  std::cout << std::endl;
 }
 
 void PrintMatrix(ClassMatrix& A){
@@ -60,28 +52,35 @@ void PrintMatrix(ClassMatrix& A){
     }
     std::cout << std::endl;
   }
+  std::cout << std::endl;
 }
 
-//creation of different types matrices
-void ClassMatrix::MakeIdentity(){
-  if(m != n){
-    std::cout << "Not a Sqaure Matrix "; throw;
+double& ClassMatrix::operator()(int i, int j){
+  return *(p+m*j+i);
+}
+ClassMatrix ClassMatrix::operator=(ClassMatrix& A){
+  ClassMatrix B(A.Rows(),A.Columns());
+  for(int i=0; i< A.Elems(); i++){
+    *(B.Begin()+i) = *(A.Begin()+i);
   }
-  for(int i=0; i< elems; i++) *(p+i) = 0.0;
-  for(int i=0; i< m; i++){
-    *(p+i*m+i) = 1.0;
-  }
+  return B;
 }
 
-void ClassMatrix::MakeNull(){
-  for(int i=0; i< elems; i++) *(p+i) = 0.0;
-}
-
-
-//Matrix Checks
-int IsNull(ClassMatrix& A){
+ClassMatrix operator+(ClassMatrix& A, ClassMatrix& B){
+  if(A.Rows() != B.Rows()){std::cout << "Size Mismatch: Addition"; throw;}
+  if(A.Columns() != B.Columns()){std::cout << "Size Mismatch: Addition"; throw;}
+  ClassMatrix C(A.Rows(),A.Columns());
   for(int i=0; i<A.Elems(); i++){
-    if(*(A.Begin()+i) != 0.0) return 0;
+    *(C.Begin()+i) = *(A.Begin()+i) + *(B.Begin()+i);
+  }
+  return C;
+}
+
+int operator==(ClassMatrix& A, ClassMatrix& B){
+  if(A.Rows() != B.Rows()) return 0;
+  if(A.Columns() != B.Columns()) return 0;
+  for(int i=0; i<A.Elems(); i++){
+    if(*(A.Begin()+i) != *(B.Begin()+i)) return 0;
   }
   return 1;
 }

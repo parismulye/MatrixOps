@@ -8,25 +8,16 @@
 
 int main(){
 
-ClassMatrix A(4,5);
+ClassMatrix A(4,2);
 
 MakeRandomInt(A,0,10);
 
 PrintMatrix(A);
 
-A(1,2) = 5;
+ClassMatrix D = Transpose(A);
 
-PrintMatrix(A);
+PrintMatrix(D);
 
-ClassMatrix B(4,5);
-
-MakeRandomInt(B,0,4);
-
-PrintMatrix(B);
-
-ClassMatrix C = A+B;
-
-PrintMatrix(C);
 
 return 0;
 }

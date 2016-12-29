@@ -15,11 +15,6 @@ public:
   //pointer to the first elem of the matrix (0,0)
   double* Begin() const;
 
-  //print 1D array resembles the storage in memory
-  void PrintMatrix1D() const;
-  //prints 2D array (for visual purpose)
-  void PrintMatrix() const;
-
   //index operator A(i,j)
   double& operator()(int i, int j);
   //Assignment of two Matrices A = B
@@ -31,7 +26,3 @@ private:
   int elems; //total no of elems
   double *p; //pointer to the beginning of 1D-array
 };
-
-
-  //print 2D array (for visual purpose)
-  void PrintMatrix(const ClassMatrix& A);

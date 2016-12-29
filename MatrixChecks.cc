@@ -1,51 +1,50 @@
 #include "ClassMatrix.h"
 #include<iostream>
 
-int IsSquare(ClassMatrix& A){
-  if(A.Rows() != A.Columns()) return 0;
-  return 1;
+bool IsSquare(const ClassMatrix& A) {
+  if(A.Rows() != A.Columns()) return false;
+  return true;
 }
 
-int IsNotSquare(ClassMatrix& A){
-  if(A.Rows() == A.Columns()) return 0;
-  return 1;
+bool IsNotSquare(const ClassMatrix& A) {
+  if(A.Rows() == A.Columns()) return false;
+  return true;
 }
 
-int IsNull(ClassMatrix& A){
+bool IsNull(const ClassMatrix& A){
   for(int i=0; i<A.Elems(); i++){
-    if(*(A.Begin()+i) != 0.0) return 0;
+    if(*(A.Begin()+i) != 0.0) return false;
   }
-  return 1;
+  return true;
 }
 
-int IsIdentity(ClassMatrix& A){
-  if(A.Rows()!=A.Columns()){
-    std::cout << "Not a Square Matrix"; throw;
-  }
+bool IsIdentity(const ClassMatrix& A){
+  if(IsNotSquare(A)){  std::cout << "Not a Square Matrix"; throw; }
   for(int i=0; i<A.Rows(); i++){
     for(int j=0; j<A.Columns(); j++){
-      if(i!=j && A(i,j) !=0) return 0;
-      if(i==j && A(i,j) !=1) return 0;
+      if(i!=j && *(A.Begin()+i+A.Rows()*j) != 0.0) return false;
+      if(i==j && *(A.Begin()+i+A.Rows()*j) != 1.0) return false;
     }
   }
-  return 1;
+  return true;
 }
 
-int IsSymmetric(ClassMatrix& A){
+bool IsSymmetric(const ClassMatrix& A){
   if(IsNotSquare(A)){std::cout << "Not a Square Matrix"; throw;}
   for(int i=0; i<A.Rows(); i++){
     for(int j=0; j<A.Columns(); j++){
-      if(A(i,j) != A(j,i)) return 0;
+      //A(i,j) != A(j,i)
+      if(*(A.Begin()+i+A.Rows()*j) != *(A.Begin()+j+A.Rows()*i)) return false;
     }
   }
-  return 1;
+  return true;
 }
 
-int operator==(const ClassMatrix& A, const ClassMatrix& B){
-  if(A.Rows() != B.Rows()) return 0;
-  if(A.Columns() != B.Columns()) return 0;
+bool operator==(const ClassMatrix& A, const ClassMatrix& B){
+  if(A.Rows() != B.Rows()) return false;
+  if(A.Columns() != B.Columns()) return false;
   for(int i=0; i<A.Elems(); i++){
-    if(*(A.Begin()+i) != *(B.Begin()+i)) return 0;
+    if(*(A.Begin()+i) != *(B.Begin()+i)) return false;
   }
-  return 1;
+  return true;
 }

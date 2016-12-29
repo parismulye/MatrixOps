@@ -18,7 +18,7 @@ BasicMatrixOps.o : Makefile BasicMatrixOps.cc BasicMatrixOps.h ClassMatrix.cc Cl
 MatrixOps.o : Makefile MatrixOps.cc MatrixOps.h ClassMatrix.cc ClassMatrix.h
 	$(CXX) $(CXXFLAGS) -c MatrixOps.cc
 
-Print.o : Makefile Print.cc Print.h ClassMatrix.cc ClassMatrix.h
+Print.o : Makefile Print.cc Print.h ClassMatrix.cc ClassMatrix.h MatrixChecks.cc MatrixChecks.h
 	$(CXX) $(CXXFLAGS) -c Print.cc
 
 test.o : Makefile test.cc ClassMatrix.h MatrixChecks.h MatrixConvert.h BasicMatrixOps.h MatrixOps.h Print.h

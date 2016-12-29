@@ -1,8 +1,8 @@
   //return 1 if true, 0 if false
-int IsSquare(ClassMatrix& A);
-int IsNotSquare(ClassMatrix& A);
-int IsNull(ClassMatrix& A);
-int IsIdentity(ClassMatrix& A);
-int IsSymmetric(ClassMatrix& A);
-int IsDiagonal(ClassMatrix& A);
-int operator==(const ClassMatrix& A, const ClassMatrix& B);
+bool IsSquare(const ClassMatrix& A);
+bool IsNotSquare(const ClassMatrix& A);
+bool IsNull(const ClassMatrix& A);
+bool IsIdentity(const ClassMatrix& A);
+bool IsSymmetric(const ClassMatrix& A);
+bool IsDiagonal(const ClassMatrix& A);
+bool operator==(const ClassMatrix& A, const ClassMatrix& B);

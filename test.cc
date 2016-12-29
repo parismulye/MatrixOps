@@ -1,6 +1,9 @@
 #include "ClassMatrix.h"
 #include "MatrixChecks.h"
 #include "MatrixConvert.h"
+#include "BasicMatrixOps.h"
+#include "Print.h"
+#include "MatrixOps.h"
 #include<iostream>
 
 int main(){

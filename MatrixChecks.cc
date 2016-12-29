@@ -40,3 +40,12 @@ int IsSymmetric(ClassMatrix& A){
   }
   return 1;
 }
+
+int operator==(const ClassMatrix& A, const ClassMatrix& B){
+  if(A.Rows() != B.Rows()) return 0;
+  if(A.Columns() != B.Columns()) return 0;
+  for(int i=0; i<A.Elems(); i++){
+    if(*(A.Begin()+i) != *(B.Begin()+i)) return 0;
+  }
+  return 1;
+}

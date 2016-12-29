@@ -35,11 +35,3 @@ private:
 
   //print 2D array (for visual purpose)
   void PrintMatrix(const ClassMatrix& A);
-
-
-  //Adding two matrices A+B
-  ClassMatrix operator+(const ClassMatrix& A, const ClassMatrix& B);
-  //Subtracting two matrice A-B
-  ClassMatrix operator-(const ClassMatrix& A, const ClassMatrix& B);
-  //Checking if two matrices are equal A==B
-  int operator==(const ClassMatrix& A, const ClassMatrix& B);

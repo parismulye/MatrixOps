@@ -5,3 +5,4 @@ int IsNull(ClassMatrix& A);
 int IsIdentity(ClassMatrix& A);
 int IsSymmetric(ClassMatrix& A);
 int IsDiagonal(ClassMatrix& A);
+int operator==(const ClassMatrix& A, const ClassMatrix& B);

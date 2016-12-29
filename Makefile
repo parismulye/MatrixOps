@@ -12,11 +12,20 @@ MatrixChecks.o : Makefile MatrixChecks.cc MatrixChecks.h ClassMatrix.cc ClassMat
 MatrixConvert.o : Makefile MatrixConvert.cc MatrixConvert.h ClassMatrix.cc ClassMatrix.h
 	$(CXX) $(CXXFLAGS) -c MatrixConvert.cc
 
-test.o : Makefile test.cc ClassMatrix.h MatrixChecks.h MatrixConvert.h
+BasicMatrixOps.o : Makefile BasicMatrixOps.cc BasicMatrixOps.h ClassMatrix.cc ClassMatrix.h
+	$(CXX) $(CXXFLAGS) -c BasicMatrixOps.cc
+
+MatrixOps.o : Makefile MatrixOps.cc MatrixOps.h ClassMatrix.cc ClassMatrix.h
+	$(CXX) $(CXXFLAGS) -c MatrixOps.cc
+
+Print.o : Makefile Print.cc Print.h ClassMatrix.cc ClassMatrix.h
+	$(CXX) $(CXXFLAGS) -c Print.cc
+
+test.o : Makefile test.cc ClassMatrix.h MatrixChecks.h MatrixConvert.h BasicMatrixOps.h MatrixOps.h Print.h
 	$(CXX) $(CXXFLAGS) -c test.cc
 
-test :  Makefile ClassMatrix.o MatrixChecks.o MatrixConvert.o test.o
-	$(CXX) $(CXXFLAGS) ClassMatrix.o MatrixChecks.o MatrixConvert.o test.o -o test
+test :  Makefile ClassMatrix.o MatrixChecks.o MatrixConvert.o BasicMatrixOps.o MatrixOps.o Print.o test.o
+	$(CXX) $(CXXFLAGS) ClassMatrix.o MatrixChecks.o MatrixConvert.o BasicMatrixOps.o MatrixOps.o Print.o test.o -o test
 
 
 clean :

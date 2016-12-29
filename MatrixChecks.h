@@ -4,3 +4,4 @@ int IsNotSquare(ClassMatrix& A);
 int IsNull(ClassMatrix& A);
 int IsIdentity(ClassMatrix& A);
 int IsSymmetric(ClassMatrix& A);
+int IsDiagonal(ClassMatrix& A);

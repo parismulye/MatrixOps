@@ -22,20 +22,20 @@ ClassMatrix::ClassMatrix(int size){
 }
 
 
-int ClassMatrix::Rows(){return m;}
-int ClassMatrix::Columns(){return n;}
-int ClassMatrix::Elems(){return elems;}
-double* ClassMatrix::Begin(){return p;}
+int ClassMatrix::Rows() const {return m;}
+int ClassMatrix::Columns() const {return n;}
+int ClassMatrix::Elems() const {return elems;}
+double* ClassMatrix::Begin() const {return p;}
 
 
-void ClassMatrix::PrintMatrix1D(){
+void ClassMatrix::PrintMatrix1D() const {
   for(int i=0; i<elems; i++){
     std::cout << *(p+i) << " ";
   }
   std::cout << std::endl;
 }
 
-void ClassMatrix::PrintMatrix(){
+void ClassMatrix::PrintMatrix() const {
   for (int i=0; i<m; i++){
     for (int j=0; j<n; j++){
       std::cout << *(p+m*j+i) << " ";
@@ -45,20 +45,15 @@ void ClassMatrix::PrintMatrix(){
   std::cout << std::endl;
 }
 
-void PrintMatrix(ClassMatrix& A){
-  for(int i=0; i < A.Rows(); i++){
-    for(int j=0; j< A.Columns(); j++){
-      std::cout << A(i,j) << " ";
-    }
-    std::cout << std::endl;
-  }
-  std::cout << std::endl;
+void PrintMatrix(const ClassMatrix& A){
+  A.PrintMatrix();
 }
 
 double& ClassMatrix::operator()(int i, int j){
   return *(p+m*j+i);
 }
-ClassMatrix ClassMatrix::operator=(ClassMatrix& A){
+
+ClassMatrix ClassMatrix::operator=(const ClassMatrix& A){
   ClassMatrix B(A.Rows(),A.Columns());
   for(int i=0; i< A.Elems(); i++){
     *(B.Begin()+i) = *(A.Begin()+i);
@@ -66,7 +61,7 @@ ClassMatrix ClassMatrix::operator=(ClassMatrix& A){
   return B;
 }
 
-ClassMatrix operator+(ClassMatrix& A, ClassMatrix& B){
+ClassMatrix operator+(const ClassMatrix& A, const ClassMatrix& B){
   if(A.Rows() != B.Rows()){std::cout << "Size Mismatch: Addition"; throw;}
   if(A.Columns() != B.Columns()){std::cout << "Size Mismatch: Addition"; throw;}
   ClassMatrix C(A.Rows(),A.Columns());
@@ -76,7 +71,17 @@ ClassMatrix operator+(ClassMatrix& A, ClassMatrix& B){
   return C;
 }
 
-int operator==(ClassMatrix& A, ClassMatrix& B){
+ClassMatrix operator-(const ClassMatrix& A, const ClassMatrix& B){
+  if(A.Rows() != B.Rows()){std::cout << "Size Mismatch: Addition"; throw;}
+  if(A.Columns() != B.Columns()){std::cout << "Size Mismatch: Addition"; throw;}
+  ClassMatrix C(A.Rows(),A.Columns());
+  for(int i=0; i<A.Elems(); i++){
+    *(C.Begin()+i) = *(A.Begin()+i) - *(B.Begin()+i);
+  }
+  return C;
+}
+
+int operator==(const ClassMatrix& A, const ClassMatrix& B){
   if(A.Rows() != B.Rows()) return 0;
   if(A.Columns() != B.Columns()) return 0;
   for(int i=0; i<A.Elems(); i++){

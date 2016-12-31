@@ -86,3 +86,39 @@ ClassMatrix GetSubMatrix(const ClassMatrix& A, int rowstart, int rowend, int col
   }
   return B;
 }
+
+ClassMatrix DotProduct(const ClassMatrix& A, const ClassMatrix& B){
+  if(A.Rows() != B.Rows() || A.Columns() != B.Columns()) {std::cout << "size is not same"; throw;}
+  ClassMatrix C(A.Rows(),A.Columns());
+  for(int i=0; i<A.Elems(); i++) *(C.Begin()+i) = *(A.Begin()+i) * *(B.Begin()+i);
+  return C;
+}
+
+std::vector<double> DotProduct(const std::vector<double>& A, const std::vector<double>& B){
+  if(A.size() != B.size()) {std::cout << "size is not same"; throw;}
+  std::vector<double> C(A.size());
+  for(int i=0; i<A.size(); i++) C[i] = A[i]*B[i];
+  return C;
+}
+
+double Sum(const ClassMatrix& A){
+  double sum = 0;
+  for(int i=0; i<A.Elems(); i++) sum += *(A.Begin()+i);
+  return sum;
+}
+
+double Sum(const std::vector<double>& A){
+  double sum = 0;
+  for(int i=0; i<A.size(); i++) sum+= A[i];
+  return sum;
+}
+
+double ScalarProduct(const std::vector<double>& A, std::vector<double>& B){
+  std::vector<double> dotvec = DotProduct(A,B);
+  return Sum(dotvec);
+}
+
+double ScalarProduct(const ClassMatrix& A, const ClassMatrix& B){
+  ClassMatrix dotmatrix = DotProduct(A,B);
+  return Sum(dotmatrix);
+}

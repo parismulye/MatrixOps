@@ -30,3 +30,5 @@ double Sum(const std::vector<double>& A);
 double ScalarProduct(const std::vector<double>& A, std::vector<double>& B);
 //scalar product matrix
 double ScalarProduct(const ClassMatrix& A, const ClassMatrix& B);
+//tensor product of vector
+ClassMatrix TensorProduct(const std::vector<double>& A, const std::vector<double>& B);

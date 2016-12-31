@@ -122,3 +122,15 @@ double ScalarProduct(const ClassMatrix& A, const ClassMatrix& B){
   ClassMatrix dotmatrix = DotProduct(A,B);
   return Sum(dotmatrix);
 }
+
+ClassMatrix TensorProduct(const std::vector<double>& A, const std::vector<double>& B){
+  int rows = A.size();
+  int columns = B.size();
+  ClassMatrix C(rows, columns);
+  for(int i=0; i< rows; i++){
+    for(int j=0; j< columns; j++){
+      C(i,j) = A[i]*B[j];
+    }
+  }
+  return C;
+}

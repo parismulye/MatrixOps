@@ -1,90 +1,24 @@
 # MatrixOps  
-Matrix Class in C++ to be used for numerical methods  
+This is a Matrix class and other supplementary functions written in C++. This is intended to be used as a base for different numerical methods and their implementation.
 
-ClassMatrix.cc  
-Definition of class and some basic functions  
+## Getting Started
 
-Implemented:  
-  define rectangular matrix (rows,cols)  
-  define square matrix (rows)  
-  A(i,j) operator  
-  A=B operator  
+ClassMatrix.cc    ->  Definition of Matrix Class  
+MatrixConvert.cc  ->  Convert the matrix into something. Useful in generation of different types of matrices (identity, random)  
+MatrixChecks.cc   ->  Check if the matrix is something. (symmetric, diagonal, null)
+MatrixOps.cc      ->  Operations on matrix, vectors. (dot product, addition, subtraction)
 
-Yet to Implement:  
+## Running the tests
 
+The file "test.cc" can be used for testing. No automated testing as of now. It will be implemented soon.
 
-MatrixChecks.cc  
-Check if matrix is a ..... matrix    
-
-Implemented:  
-  null  
-  identity  
-  symmetric  
-  A==B operator  
-
-Yet to Implement:  
-
-positive-definite  
-semi-positive-definite
-diagonally dominant  
-
-MatrixConvert.cc  
-Convert Matrix to a ..... matrix  
-
-Implemented:  
-  null  
-  identity  
-  random integer (within a specified range of integers)
-  upper triangular (not factorization, just making zeros)  
-  lower triangular (not factorization, just making zeros)  
-  diagonal  
-
-Yet to Implement:  
-
-
-
-BasicMatrixOps.cc  
-Basic operations on Matrices  
-
-Implemented:  
-  addition  
-  subtraction  
-  multiplication by a scalar double
-  division by a scalar double
-  transpose  
-  return a row/column vector
-  return a submatrix   
-
-Yet to Implement:  
-
-  multiplication by a vector  
-  multiplication by a matrix  
-  power A^n  
-
-MatrixOps.cc  
-Operate on matrices  
-
-Implemented:  
-
-Yet to Implement:  
-  eigenvalues  
-  eigenvectors  
-  determinant  
-  LU decomposition  
-
-Print.cc  
-Print something  
-
-Implemented:  
-print as per in memory (1D)  
-print visual 2D  
-print diagonal  
-print specific row  
-print specific col
-print a general vector
-
-
-Yet to Implement:    
-
-test.cc  
-Place to conduct tests.  
+```
+ClassMatrix A(2,3);
+MakeRandomInt(A,0,3);
+PrintMatrix(A);
+ClassMatrix B(2,3);
+MakeRandomInt(B,0,10);
+PrintMatrix(B);
+ClassMatrix C = DotProduct(A,B);
+PrintMatrix(C);
+```

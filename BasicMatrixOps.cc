@@ -1,7 +1,7 @@
 #include "ClassMatrix.h"
 #include "BasicMatrixOps.h"
-
 #include<iostream>
+#include<vector>
 
 ClassMatrix operator+(const ClassMatrix& A, const ClassMatrix& B){
   if(A.Rows() != B.Rows()){std::cout << "Size Mismatch: Addition"; throw;}
@@ -55,4 +55,34 @@ ClassMatrix Transpose(const ClassMatrix& A){
     }
   }
   return C;
+}
+
+std::vector<double> GetRow(const ClassMatrix& A, int rownum){
+  int size = A.Columns();
+  std::vector<double> rowvect(size,0);
+  for(int i=0; i<size; i++){
+    rowvect[i] = A(rownum,i);
+  }
+  return rowvect;
+}
+
+std::vector<double> GetColumn(const ClassMatrix& A, int colnum){
+  int size = A.Rows();
+  std::vector<double> colvect(size,0);
+  for(int i=0; i<size; i++){
+    colvect[i] = A(i,colnum);
+  }
+  return colvect;
+}
+
+ClassMatrix GetSubMatrix(const ClassMatrix& A, int rowstart, int rowend, int colstart, int colend){
+  int new_no_rows = rowend-rowstart+1;
+  int new_no_cols = colend-colstart+1;
+  ClassMatrix B(new_no_rows, new_no_cols);
+  for(int i=0; i<new_no_rows; i++){
+    for(int j=0; j<new_no_cols; j++){
+      B(i,j) = A(rowstart+i, colstart+j);
+    }
+  }
+  return B;
 }

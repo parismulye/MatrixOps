@@ -51,7 +51,9 @@ Implemented:
   subtraction  
   multiplication by a scalar double
   division by a scalar double
-  transpose     
+  transpose  
+  return a row/column vector
+  return a submatrix   
 
 Yet to Implement:  
 
@@ -79,6 +81,7 @@ print visual 2D
 print diagonal  
 print specific row  
 print specific col
+print a general vector
 
 
 Yet to Implement:    

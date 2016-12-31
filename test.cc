@@ -6,36 +6,17 @@
 #include "MatrixOps.h"
 #include<iostream>
 
+#include<vector>
+
 int main(){
 
 ClassMatrix A(4,4);
-
 MakeRandomInt(A,0,10);
-
 PrintMatrix(A);
 
-ClassMatrix D = Transpose(A);
+ClassMatrix B = GetSubMatrix(A,2,3,0,0);
 
-PrintMatrix(D);
-
-// MakeUpperTriangular(A);
-
-
-
-
-
-
-MakeLowerTriangular(A);
-
-
-PrintMatrix(A);
-
-// std::cout << IsDiagonal(A);
-
-std::cout << std::endl;
-
-
-// PrintMatrix(A);
+PrintMatrix(B);
 
 return 0;
 }

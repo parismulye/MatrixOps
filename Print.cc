@@ -2,7 +2,7 @@
 #include "MatrixChecks.h"
 #include<iostream>
 #include<iomanip>
-
+#include<vector>
 
 void PrintMatrix1D(const ClassMatrix& A) {
   for(int i=0; i<A.Elems(); i++){
@@ -41,6 +41,13 @@ void PrintRow(const ClassMatrix& A, const int val){
 void PrintColumn(const ClassMatrix& A, const int val){
   for(int i=0; i<A.Rows(); i++){
     std::cout << *(A.Begin()+val*A.Rows()+i) << " ";
+  }
+  std::cout << std::endl;
+}
+
+void PrintVector(const std::vector<double> vec){
+  for(int i=0; i< vec.size(); i++){
+    std::cout << vec[i] << " ";
   }
   std::cout << std::endl;
 }

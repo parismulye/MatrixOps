@@ -30,6 +30,11 @@ double& ClassMatrix::operator()(int i, int j){
   return *(p+m*j+i);
 }
 
+const double& ClassMatrix::operator()(int i, int j) const {
+  return *(p+m*j+i);
+}
+
+
 ClassMatrix ClassMatrix::operator=(const ClassMatrix& A){
   ClassMatrix B(A.Rows(),A.Columns());
   for(int i=0; i< A.Elems(); i++){

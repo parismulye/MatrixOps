@@ -17,6 +17,8 @@ public:
 
   //index operator A(i,j)
   double& operator()(int i, int j);
+  //index operator for a constat input
+  const double& operator()(int i, int j) const;
   //Assignment of two Matrices A = B
   ClassMatrix operator=(const ClassMatrix& A);
 

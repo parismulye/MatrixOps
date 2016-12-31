@@ -22,8 +22,8 @@ bool IsIdentity(const ClassMatrix& A){
   if(IsNotSquare(A)){  std::cout << "Not a Square Matrix"; throw; }
   for(int i=0; i<A.Rows(); i++){
     for(int j=0; j<A.Columns(); j++){
-      if(i!=j && *(A.Begin()+i+A.Rows()*j) != 0.0) return false;
-      if(i==j && *(A.Begin()+i+A.Rows()*j) != 1.0) return false;
+      if(i!=j && A(i,j) != 0.0) return false;
+      if(i==j && A(i,j) != 1.0) return false;
     }
   }
   return true;
@@ -33,8 +33,7 @@ bool IsSymmetric(const ClassMatrix& A){
   if(IsNotSquare(A)){std::cout << "Not a Square Matrix"; throw;}
   for(int i=0; i<A.Rows(); i++){
     for(int j=0; j<A.Columns(); j++){
-      //A(i,j) != A(j,i)
-      if(*(A.Begin()+i+A.Rows()*j) != *(A.Begin()+j+A.Rows()*i)) return false;
+      if(A(i,j) != A(j,i)) return false;
     }
   }
   return true;

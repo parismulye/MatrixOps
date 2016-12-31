@@ -5,7 +5,7 @@ This is a Matrix class and other supplementary functions written in C++. This is
 
 ClassMatrix.cc    ->  Definition of Matrix Class  
 MatrixConvert.cc  ->  Convert the matrix into something. Useful in generation of different types of matrices (identity, random)  
-MatrixChecks.cc   ->  Check if the matrix is something. (symmetric, diagonal, null)
+MatrixChecks.cc   ->  Check if the matrix is something. (symmetric, diagonal, null)  
 MatrixOps.cc      ->  Operations on matrix, vectors. (dot product, addition, subtraction)
 
 ## Running the tests

@@ -18,15 +18,24 @@ ClassMatrix D = Transpose(A);
 
 PrintMatrix(D);
 
-MakeIdentity(A);
+// MakeUpperTriangular(A);
 
 
-std::cout << IsIdentity(A);
+
+
+
+
+MakeLowerTriangular(A);
+
+
+PrintMatrix(A);
+
+// std::cout << IsDiagonal(A);
 
 std::cout << std::endl;
 
 
-PrintMatrix(A);
+// PrintMatrix(A);
 
 return 0;
 }

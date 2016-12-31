@@ -9,7 +9,7 @@ ClassMatrix.o : Makefile ClassMatrix.cc ClassMatrix.h
 MatrixChecks.o : Makefile MatrixChecks.cc MatrixChecks.h ClassMatrix.cc ClassMatrix.h
 	$(CXX) $(CXXFLAGS) -c MatrixChecks.cc
 
-MatrixConvert.o : Makefile MatrixConvert.cc MatrixConvert.h ClassMatrix.cc ClassMatrix.h
+MatrixConvert.o : Makefile MatrixConvert.cc MatrixConvert.h MatrixChecks.cc MatrixChecks.h ClassMatrix.cc ClassMatrix.h
 	$(CXX) $(CXXFLAGS) -c MatrixConvert.cc
 
 BasicMatrixOps.o : Makefile BasicMatrixOps.cc BasicMatrixOps.h ClassMatrix.cc ClassMatrix.h

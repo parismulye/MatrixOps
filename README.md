@@ -34,12 +34,13 @@ Convert Matrix to a ..... matrix
 Implemented:  
   null  
   identity  
-  random integer (within a specified range of integers)  
-
-Yet to Implement:  
+  random integer (within a specified range of integers)
   upper triangular (not factorization, just making zeros)  
   lower triangular (not factorization, just making zeros)  
   diagonal  
+
+Yet to Implement:  
+
 
 
 BasicMatrixOps.cc  

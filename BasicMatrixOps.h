@@ -36,3 +36,8 @@ ClassMatrix TensorProduct(const std::vector<double>& A, const std::vector<double
 ClassMatrix operator*(const ClassMatrix& A, const ClassMatrix& B);
 //matrix-vector multiplication
 std::vector<double> operator*(const ClassMatrix& A, const std::vector<double> x);
+//multiplication by a scalar double to a vector
+std::vector<double> operator*(const std::vector<double>& v, const double fact);
+std::vector<double> operator*(const double fact, const std::vector<double>& v);
+//division by a scalar double to a vector
+std::vector<double> operator/(const std::vector<double>& v, const double fact);

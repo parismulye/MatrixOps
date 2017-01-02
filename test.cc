@@ -9,16 +9,12 @@
 
 int main(){
 
-ClassMatrix A(6,4);
-MakeRandomInt(A,0,10);
-Print(A);
+std::vector<double> v(4,3);
+std::vector<double> m = v/4;
 
-ClassMatrix B(4,2);
-MakeRandomInt(B,0,3);
-Print(B);
+Print(v);
 
-ClassMatrix C = A*B;
-Print(C);
+Print(m);
 
 return 0;
 }

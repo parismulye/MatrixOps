@@ -158,3 +158,21 @@ std::vector<double> operator*(const ClassMatrix& A, const std::vector<double> x)
   }
   return b;
 }
+
+std::vector<double> operator*(const std::vector<double>& v, const double fact){
+  std::vector<double> solution(v.size());
+  for(int i=0; i<v.size(); i++) solution[i] = v[i]*fact;
+  return solution;
+}
+
+std::vector<double> operator*(const double fact, const std::vector<double>& v){
+  std::vector<double> solution(v.size());
+  for(int i=0; i<v.size(); i++) solution[i] = v[i]*fact;
+  return solution;
+}
+
+std::vector<double> operator/(const std::vector<double>& v, const double fact){
+  std::vector<double> solution(v.size());
+  for(int i=0; i<v.size(); i++) solution[i] = v[i]/fact;
+  return solution;
+}

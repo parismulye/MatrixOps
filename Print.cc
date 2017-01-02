@@ -47,7 +47,7 @@ void PrintColumn(const ClassMatrix& A, const int val){
 
 void Print(const std::vector<double> vec){
   for(int i=0; i< vec.size(); i++){
-    std::cout << vec[i] << "\n";
+    std::cout << std::scientific << std::setw(6) << std::setprecision(2) << vec[i] << "\n";
   }
   std::cout << std::endl;
 }

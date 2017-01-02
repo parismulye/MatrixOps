@@ -1,6 +1,7 @@
 #include "ClassMatrix.h"
 #include "MatrixChecks.h"
 #include<iostream>
+#include<vector>
 
 void MakeIdentity(ClassMatrix &A){
   if(A.Rows() != A.Columns()){
@@ -48,4 +49,9 @@ void MakeLowerTriangular(ClassMatrix& A){
       if(i<j) A(i,j) = 0.0;
     }
   }
+}
+
+void MakeRandomInt(std::vector<double>& A, int min, int max){
+  int range = max-min;
+  for(int i=0; i<A.size(); i++) A[i] = std::rand()%range+min;
 }

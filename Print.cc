@@ -4,14 +4,14 @@
 #include<iomanip>
 #include<vector>
 
-void PrintMatrix1D(const ClassMatrix& A) {
+void PrintMatStorage(const ClassMatrix& A) {
   for(int i=0; i<A.Elems(); i++){
     std::cout << *(A.Begin()+i) << " ";
   }
   std::cout << std::endl;
 }
 
-void PrintMatrix(const ClassMatrix& A) {
+void Print(const ClassMatrix& A) {
   int m = A.Rows();
   int n = A.Columns();
   for (int i=0; i<m; i++){
@@ -45,9 +45,9 @@ void PrintColumn(const ClassMatrix& A, const int val){
   std::cout << std::endl;
 }
 
-void PrintVector(const std::vector<double> vec){
+void Print(const std::vector<double> vec){
   for(int i=0; i< vec.size(); i++){
-    std::cout << vec[i] << " ";
+    std::cout << vec[i] << "\n";
   }
   std::cout << std::endl;
 }

@@ -134,3 +134,27 @@ ClassMatrix TensorProduct(const std::vector<double>& A, const std::vector<double
   }
   return C;
 }
+
+ClassMatrix operator*(const ClassMatrix& A, const ClassMatrix& B){
+  if(A.Columns() != B.Rows()){ std::cout << "Mutiplication dimension mismatch"; throw;}
+  ClassMatrix C(A.Rows(),B.Columns());
+  for(int i=0; i< A.Rows(); i++){
+    for(int j=0; j< B.Columns(); j++){
+      for(int k=0; k< A.Columns(); k++){
+        C(i,j) = C(i,j) + A(i,k)*B(k,j);
+      }
+    }
+  }
+  return C;
+}
+
+std::vector<double> operator*(const ClassMatrix& A, const std::vector<double> x){
+  if(A.Columns() != x.size()) {std::cout << "Multiplication: Dimension Mismatch"; throw;}
+  std::vector<double> b(A.Rows());
+  for(int i=0; i<A.Rows(); i++){
+    for(int j=0; j<A.Columns(); j++){
+      b[i] = b[i] + A(i,j)*x[j];
+    }
+  }
+  return b;
+}

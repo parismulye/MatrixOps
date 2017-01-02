@@ -32,3 +32,7 @@ double ScalarProduct(const std::vector<double>& A, std::vector<double>& B);
 double ScalarProduct(const ClassMatrix& A, const ClassMatrix& B);
 //tensor product of vector
 ClassMatrix TensorProduct(const std::vector<double>& A, const std::vector<double>& B);
+//matrix-matrix multiplication
+ClassMatrix operator*(const ClassMatrix& A, const ClassMatrix& B);
+//matrix-vector multiplication
+std::vector<double> operator*(const ClassMatrix& A, const std::vector<double> x);

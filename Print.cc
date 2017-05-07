@@ -9,6 +9,7 @@ void PrintMatStorage(const ClassMatrix& A) {
     std::cout << *(A.Begin()+i) << " ";
   }
   std::cout << std::endl;
+  std::cout << std::endl;
 }
 
 void Print(const ClassMatrix& A) {
